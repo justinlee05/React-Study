@@ -1,6 +1,5 @@
 import './App.css';
-import { useRef, useState} from 'react';
-import  styled from 'styled-components';
+import { useEffect, useRef, useState} from 'react';
 import { style } from './elements';
 import List from './lists';
 
@@ -17,8 +16,8 @@ function App() {
     setInputText(e.target.value);
   }
 
-  const [ values,setValues]  = useState([
-    {
+  const [ values, setValues]  = useState([
+    /* {
       id : 1,
       value : '테스트 1',
       design:undefined
@@ -32,8 +31,9 @@ function App() {
       id : 3,
       value : '테스트 3',
       design:false
-    }
+    } */
   ]);
+
   const nextId = useRef(4);
 
   const OnCreate = () => {
@@ -49,34 +49,73 @@ function App() {
       alert('뭐야 값 내놔요 ');
     }
     setInputText('');
+    
   }  
   
   const onKeys = (e) => {
     if (e.key === 'Enter')
       OnCreate();
   }
+  
 
   const onToggle = (id) => {
     setValues(
       values.map(index =>
         index.id === id ? { ...index, design: !index.design } : index
       )
+    
     );
+  }
+
+  const focus = () => {
+    input.current.focus();
+  }  
+
+  const Delete = (id) => {
+  
 
 
+    console.log('삭제 실행됨.');
+    console.log();
+    console.log(values)
+    
+    setValues(values.filter(index => index.id !== id))
   }
 
 
+  const [count,setcount] = useState(1);
+  const showEdit = (id, value) =>{
+    console.log("실행됨");
+    console.log(edit_style);
+    if(count){
+      editStyle({display:'flex'});
+    }
+    else{
+      editStyle({display:'none'});
+    }
+    setcount(!count);
+  }
+
+  const [ edit_style,editStyle] = useState({display:'none'});
+
+
+  const scroll = useRef();
+
   return (<>
   <style.background>
+    <style.edit_modal_background style={edit_style}>
+      <style.edit_modal>
+
+      </style.edit_modal>
+    </style.edit_modal_background>
     <style.modal>
       <style.input_wrapper>
         <style.input onChange={Onchange} ref={input} onKeyPress={onKeys}/>
         <style.input_button onClick={OnCreate}>config</style.input_button>
       </style.input_wrapper>
       <style.list_ul_wrapper>
-        <style.list_ul>
-          <List value={values} onToggle={onToggle} />
+        <style.list_ul ref={scroll}>
+          <List value={values} onToggle={onToggle} Delete={Delete} onEdit={showEdit}/>
         </style.list_ul>
       </style.list_ul_wrapper>
     </style.modal>

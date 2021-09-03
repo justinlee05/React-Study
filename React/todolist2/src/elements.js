@@ -28,6 +28,26 @@ export const style = {
             border-radius:10px;
             `,
 
+        //수정모달 배경 
+        edit_modal_background:styled.div`
+            /* z-index:1; */
+            position:fixed;
+            width:100%;
+            height:100vh;
+            background-color:rgb(0,0,0,0.5);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            display:none;
+            
+        `,
+
+        edit_modal:styled.div`
+        width:400px;
+        height:500px;
+        background-color:white;
+        box-shadow:-10px 0px 0px black
+        `,
 
             //인풋감싸는 div
         input_wrapper:styled.div`
@@ -66,7 +86,6 @@ export const style = {
 
             //ul 감싸는거
         list_ul_wrapper:styled.div`
-        
             width:90%;
             height:60%;
             display:flex;
@@ -79,7 +98,6 @@ export const style = {
             background-color:rgb(209, 209, 209);
             margin-top:50px;
             -ms-overflow-style: none;
-            
             }::-webkit-scrollbar {
                 display:none;
                 width: 10px;
@@ -100,7 +118,6 @@ export const style = {
             overflow:scroll;
             overflow-x:hidden;
             background-color:rgb(209, 209, 209);
-            
             -ms-overflow-style: none;
             }::-webkit-scrollbar {
                 display:none;
@@ -111,15 +128,26 @@ export const style = {
 
         //글자
         list_li:styled.p`
-            height:100%;
-            width:90%;
+            height:auto;
+            width:80%;
             padding-right:10px;
             margin-left:20px;
             text-overflow: ellipsis;
+            border:1px solid black;
             margin-top:10px;
             margin-bottom:20px;
             white-space:normal;
+            word-break:break-all;
+            resize:none;
+            background-color:rgb(0,0,0,0);
+            outline:none;
+            overflow-y:visible;
             
+        `,
+
+        
+
+        list_edit:styled.input`
             
         `,
 
@@ -129,9 +157,7 @@ export const style = {
         list_li_wrapper:styled.div`
             width:80%;
             text-overflow: ellipsis;
-            
             box-shadow: inset 8px 3px white;
-            
             padding-left:20px;
             margin-top:20px;
             margin-left:10px;
@@ -143,16 +169,45 @@ export const style = {
             flex-direction:column;
             align-items:flex-start;
             -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        `,
+
+
+        //버튼이랑 아이디 감싸는거 (헤더)
+        head_wrapper:styled.div`
+            display:flex;
+            flex-direction:row;
+            width:95%;
+            margin-top:10px;
+            align-items: center;
+            justify-content: space-between;
         `,
 
 
         //아이디
         list_b:styled.b`
-            margin-top:20px;
-        `
+            
+        `,
+
+        //삭제버튼
+        button_remove :styled.button`
+            position:sticky;
+            top:0px;
+            right:0px;
+            width:20px;
+            height:20px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:none;
+            border-radius:10px;
+           
+            
+        `,
+
 }
+
