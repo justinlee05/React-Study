@@ -12,7 +12,7 @@ function List(props){
                     <style.list_b>{index.id} : </style.list_b>
                     <style.button_remove onClick={(event) => {event.stopPropagation();props.Delete(index.id);}}  style={index.design ? {visibility:'visible',opacity:'1',transition:'0.3s'}:{visibility:'hidden',opacity:'0',transition:'0.3s'}}>X</style.button_remove>
                 </style.head_wrapper>
-                <style.list_li onClick={(event) => {event.stopPropagation();props.onEdit(index.id,index.value)}}>
+                <style.list_li onClick={(event) => {event.stopPropagation();props.onEdit(index.value)}}>
                     {index.value}
                 </style.list_li>
             </style.list_li_wrapper>

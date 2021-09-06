@@ -84,7 +84,8 @@ function App() {
 
 
   const [count,setcount] = useState(1);
-  const showEdit = (id, value) =>{
+  const edit_modal = useRef();
+  const showEdit = (value) =>{
     console.log("실행됨");
     console.log(edit_style);
     if(count){
@@ -105,7 +106,7 @@ function App() {
   <style.background>
     <style.edit_modal_background style={edit_style}>
       <style.edit_modal>
-
+        <style.edit_input />
       </style.edit_modal>
     </style.edit_modal_background>
     <style.modal>

@@ -42,11 +42,19 @@ export const style = {
             
         `,
 
+        //수정모달
         edit_modal:styled.div`
         width:400px;
         height:500px;
         background-color:white;
         box-shadow:-10px 0px 0px black
+        `,
+
+
+        //수정인풋
+        edit_input:styled.textarea`
+        resize:none;
+        
         `,
 
             //인풋감싸는 div
@@ -129,8 +137,8 @@ export const style = {
         //글자
         list_li:styled.p`
             height:auto;
-            width:80%;
-            padding-right:10px;
+            
+            margin-right:10px;
             margin-left:20px;
             text-overflow: ellipsis;
             border:1px solid black;
