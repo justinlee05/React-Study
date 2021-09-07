@@ -1,13 +1,15 @@
-import './App.css';
-import './Hello';
-import Hello from './Hello';
+import React, { useState } from 'react';
+import JSX from './JSX';
+
 
 function App() {
-  return (
-    <>
-      <Hello />
-    </>
-  );
+
+
+  return(
+      <JSX />
+  )
 }
+
+
 
 export default App;

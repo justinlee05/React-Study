@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import List from './lists'
+import List from '../todoItem/lists'
 
-export const style = {
+export const Background = styled.div`
+    display: flex;
+`;
+
+export const S = {
     //배경
-      background: styled.div`
+      Background: styled.div`
             width:100%;
             height:100vh;
             background-color:gray;
@@ -15,7 +19,7 @@ export const style = {
         
 
             //모달
-        modal : styled.div`
+        Modal : styled.div`
             border:1px solid black;
             width:30%;
             height:80vh;
@@ -29,8 +33,8 @@ export const style = {
             `,
 
         //수정모달 배경 
-        edit_modal_background:styled.div`
-            /* z-index:1; */
+        EditModalBackground:styled.div`
+            z-index:1;
             position:fixed;
             width:100%;
             height:100vh;
@@ -43,22 +47,84 @@ export const style = {
         `,
 
         //수정모달
-        edit_modal:styled.div`
+        EditModal:styled.div`
         width:400px;
-        height:500px;
+        height:550px;
         background-color:white;
-        box-shadow:-10px 0px 0px black
+        box-shadow:inset 8px 3px 0px 0px gray;
+        border-radius:10px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:space-around;
+        
+
+        `,
+        EditButtonWrapper:styled.div`
+        display:flex;
+        flex-direction:row;
+        align-items:center  ;
+        
+        width:80%;
+        justify-content:space-around;
         `,
 
-
         //수정인풋
-        edit_input:styled.textarea`
+        EditInput:styled.textarea`
         resize:none;
+        width:80%;
+        height:50%;
+        box-shadow:inset -8px -3px 0px 0px gray;
+        border-radius:10px;
+        background-color:lightgray;
+        padding:10px;
+        padding-right:18px;
+        outline:none;
         
         `,
 
+        //수정버튼
+        EditConfig:styled.button`
+ 
+        width:90px;
+        height:40px;
+        box-shadow:inset 8px 3px 0px 0px gray;
+        border-radius:10px;
+        padding-left:8px;
+        padding-top:3px;
+        border:none;
+        }:active{
+            box-shadow:inset -8px -3px 0px 0px gray;
+            padding-left:0px;
+            padding-top:0px;
+            padding-right:8px;
+            padding-bottom:3px;
+            background-color:darkgray;
+        }
+        `,
+
+        EditCancel:styled.button`
+     
+        width:90px;
+        height:40px;
+        box-shadow:inset 8px 3px 0px 0px gray;
+        border-radius:10px;
+        padding-left:8px;
+        padding-top:3px;
+        border:none;
+    }:active{
+            box-shadow:inset -8px -3px 0px 0px gray;
+            padding-left:0px;
+            padding-top:0px;
+            padding-right:8px;
+            padding-bottom:3px;
+            background-color:darkgray;
+        }
+        `,
+
+
             //인풋감싸는 div
-        input_wrapper:styled.div`
+        InputWrapper:styled.div`
             width:60%;
             height:10%;
             margin-top:10%;
@@ -70,7 +136,7 @@ export const style = {
 
 
             //인풋
-        input:styled.input`
+        Input:styled.input`
             font-size:30px;
             height:100%;
             width:100%;
@@ -84,7 +150,7 @@ export const style = {
 
 
             //버튼
-        input_button:styled.button`
+        InputButton:styled.button`
             width:55px;
             height:100%;
             border:none;
@@ -93,7 +159,7 @@ export const style = {
 
 
             //ul 감싸는거
-        list_ul_wrapper:styled.div`
+        ListulWrapper:styled.div`
             width:90%;
             height:60%;
             display:flex;
@@ -114,7 +180,7 @@ export const style = {
         `,
         
         //ul(블럭들 감싸는거)
-        list_ul:styled.ul`{
+        Listul:styled.ul`{
             
             width:100%;
             height:99%;
@@ -135,13 +201,13 @@ export const style = {
         `,
 
         //글자
-        list_li:styled.p`
+        Listli:styled.p`
             height:auto;
             
             margin-right:10px;
             margin-left:20px;
             text-overflow: ellipsis;
-            border:1px solid black;
+           
             margin-top:10px;
             margin-bottom:20px;
             white-space:normal;
@@ -155,14 +221,14 @@ export const style = {
 
         
 
-        list_edit:styled.input`
+        ListEdit:styled.input`
             
         `,
 
 
 
         //블럭
-        list_li_wrapper:styled.div`
+        ListliWrapper:styled.div`
             width:80%;
             text-overflow: ellipsis;
             box-shadow: inset 8px 3px white;
@@ -186,7 +252,7 @@ export const style = {
 
 
         //버튼이랑 아이디 감싸는거 (헤더)
-        head_wrapper:styled.div`
+        HeadWrapper:styled.div`
             display:flex;
             flex-direction:row;
             width:95%;
@@ -197,12 +263,12 @@ export const style = {
 
 
         //아이디
-        list_b:styled.b`
+        Listb:styled.b`
             
         `,
 
         //삭제버튼
-        button_remove :styled.button`
+        ButtonRemove :styled.button`
             position:sticky;
             top:0px;
             right:0px;
