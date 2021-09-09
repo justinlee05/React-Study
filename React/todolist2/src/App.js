@@ -9,6 +9,7 @@ import List from './components/todoItem/lists';
 
 function App() {
   const [ inputText,setInputText ] = useState(''); //input 값 감지용
+  const [click , setClick] = useState(false)
 
   const input = useRef();
   
@@ -114,7 +115,7 @@ function App() {
   const edit_input = useRef();
 
   return (<>
-  <S.Background>
+  <S.Background click={click} onClick={() => setClick(!click)} >
     <S.EditModalBackground style={edit_style}>
       <S.EditModal>
         <S.EditInput ref={edit_input} />
