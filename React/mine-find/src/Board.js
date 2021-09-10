@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { render } from "react-dom";
 import { S } from "./styles";
 
 function getRandomInt(min, max) {
@@ -7,19 +8,14 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
 }
 
-function addBomb(ranX,ranY,arr){
-    for (let i=0;i<1;i++){
+function addBomb(posX,posY,arr){
+    
         
-        /* if (arr[ranY][ranX].number===-1){
-            i++;
-            continue;
-        } */
-        arr[ranY][ranX].number = -1;
+       
+        arr[posY*10+posX].number = -1;
+        console.log(`X : ${posX} Y : ${posY}`);
         
-        console.log(`X : ${ranX} Y : ${ranY}`);
-        console.log(`X : ${ranX} Y : ${ranY}`);
-        
-    }
+    
 }
 function findBomb(X,Y,arr){
     for(let i=0;i<3;i++){
@@ -36,46 +32,36 @@ function findBomb(X,Y,arr){
     }
 }
 
-function Board(){
-    const count = [0,1,2,3,4,5,6,7,8,9];
-    const subarr = [];
-    for (let i=0;i<10;i++){
-        subarr.push([]);
-        for (let k=0;k<10;k++){
-            subarr[i].push({
-                posX:k,
-                posY:i,
-                number:0,
-                pos:k+','+i
-            })
-        }
-    }
-    console.log(count)
-        
-    const [board,setBoard] = useState(subarr)
-    addBomb(5,7,subarr);
-    addBomb(9,7,subarr)
-    findBomb(5,7,subarr);
-    findBomb(9,7,subarr);
+function Board(props){
+   
     
+    const rendering= () => {
+        const result= [];
+        for (let i=0;i<10;i++){
+            const temp = [];
+            for (let j=0;j<10;j++){
+                temp.push(<S.Block>{props.array[i][j]}</S.Block>);
+            }
+            result.push(<S.Row>{temp}</S.Row>)
+        }
+        return result;
 
-  console.log(subarr);
-  console.log(board[0][0].number)
+    }
 
-  
-
+    const result= [];
+    const temp = [];
+        for (let i=0;i<10;i++){
+            for (let j=0;j<10;j++){
+                temp.push(<S.Block key={j+','+i}>{props.array[i][j]}</S.Block>);
+            }
+            result.push(<S.Row>{temp}</S.Row>)
+        }
     return(    
-        <>
-    {count.map(index=> (
-      <S.Row> 
-      {count.map(value => (
-        <S.Block style={subarr[index][value].number === -1 ? {backgroundColor:'red'}:{backgroundColor:'lightgray'}}>{subarr[index][value].number > 0 ?  subarr[index][value].number  : '' }</S.Block>
-      ))}
-      </S.Row>
-    ))}
-    </>
-        
+        <div>
+        {temp}    
+        </div>
     )
+   
 }
 
 

@@ -13,6 +13,7 @@ export const S = {
     height:20px;
     align-items:center;
     justify-content:center;
+    
     `,
 
     
