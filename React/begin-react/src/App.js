@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ConditionalRendering from './ConditionalRendering';
 import JSX from './JSX';
 import Props from './Props';
 import Wrapper from './Wrapper';
@@ -8,10 +9,7 @@ function App() {
 
 
   return(
-    <Wrapper>
-      <Props color='red' name='React' />
-      <Props color='blue' />
-    </Wrapper>
+      <ConditionalRendering isSpecial={true} />
     )
 }
 
