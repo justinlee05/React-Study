@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import ConditionalRendering from './ConditionalRendering';
-import JSX from './JSX';
-import Props from './Props';
-import Wrapper from './Wrapper';
-
+import Counter from './Count';
+import Test from './Test';
 
 function App() {
-
-
-  return(
-      <ConditionalRendering isSpecial={true} />
-    )
+  return (
+    <>
+      <Counter></Counter>
+    </>
+  );
 }
-
-
 
 export default App;
