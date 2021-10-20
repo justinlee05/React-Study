@@ -6,7 +6,7 @@ function Counter(props) {
   return (
     <>
       <div>{count}</div>
-      <button onClick={() => {setCount(count + 1); console.log('+1')}}>+1</button>
+      <button onClick={() => {setCount(prev => prev + 1); console.log('+1')}}>+1</button>
       <button onClick={() => {setCount(count - 1); console.log('-1')}}>-1</button>
     </>
   );

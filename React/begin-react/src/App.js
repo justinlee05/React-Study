@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Counter from './Count';
-import Test from './Test';
+import InputSample from './components/InputSample';
 
 function App() {
   return (
     <>
-      <Counter></Counter>
+      <InputSample />
     </>
   );
 }
