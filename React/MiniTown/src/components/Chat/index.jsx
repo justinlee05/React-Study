@@ -30,6 +30,7 @@ export function onSelectGoods(id){
 }
 
 function Chat() {
+  const [open,setOpen] = useState(false);
   const history = useHistory();
 
   const input = useRef();
@@ -145,7 +146,7 @@ function Chat() {
   };
 
 
-  const [open,setOpen] = useState(false);
+ 
 
   const id = window.localStorage.getItem('id');
   return (

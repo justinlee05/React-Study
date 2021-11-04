@@ -6,20 +6,36 @@ function InputSample() {
       nickname:""
   });
 
-  const {name , nickname} = inputs;
+  const { name , nickname} = inputs;
+
+  const refname = useRef();
+  const refnick = useRef();
+  
   const onChange = (e) => {
-    console.log(e.target.name);
+    const {name, value} = e.target;
     console.log(e.target.value);
+    const newInputs ={
+      ...inputs,
+      [name] :value
+    }
+    setInputs(newInputs)
+
   };
 
   const onReset = () => {
 
+    console.log(name,nickname)
+    setInputs('')
+    
+    refname.current.value = ''
+    refnick.current.value = ''
+    refname.current.focus();
   };
 
   return (
     <div>
-      <input onChange={onChange} name="name" value={name} placeholder="이름" />
-      <input onChange={onChange} name="nickname" value={nickname} placeholder="닉네임" />
+      <input  onChange={onChange} name="name" placeholder="이름" ref={refname} />
+      <input  onChange={onChange} name="nickname" placeholder="닉네임" ref={refnick} />
       <button onClick={onReset}>초기화</button>
       <div>
         <b>값:{name}({nickname})</b>
