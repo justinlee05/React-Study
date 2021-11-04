@@ -208,6 +208,7 @@ function Board({ size }) {
                   pos={{ x: index1, y: index }}
                   num={board[index][index1].number}
                   checkWinner={checkWinner}
+                  
                 />
               ))}
             </S.RowAlign>

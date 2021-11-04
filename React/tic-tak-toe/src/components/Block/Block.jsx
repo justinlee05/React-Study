@@ -9,6 +9,7 @@ function Block({ setBlock, text, border, pos, num, checkWinner }) {
   const nstyle = {
     margin: "1.2px",
     borderRadius: "100%",
+    cursor:'pointer'
   };
   const black = {
     backgroundColor: "black",
